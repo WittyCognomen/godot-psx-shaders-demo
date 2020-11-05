@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://diorama/textures/psxtree.png" type="Texture" id=1]
+[ext_resource path="res://shaders/psx.shader" type="Shader" id=2]
+[ext_resource path="res://diorama/scenes/pentshadow.tscn" type="PackedScene" id=3]
+
+
+
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/color = Color( 0.372549, 0.305882, 0.305882, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 256.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/double_sided = false
+shader_param/albedoTex = ExtResource( 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 1, 1 )
+subdivide_width = 1
+subdivide_depth = 1
+
+[node name="tree" type="Spatial"]
+
+[node name="tree" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, -2.18557e-07, -10, 0, 5, -4.37114e-07, -0.33504, 5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="tree2" type="MeshInstance" parent="."]
+transform = Transform( -1.62921e-06, 5, -4.37114e-07, 0, -2.18557e-07, -10, -10, -8.14603e-07, 7.12149e-14, 0, 5, 0.317007 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="tree3" type="MeshInstance" parent="."]
+transform = Transform( 1.19249e-07, -5, 1.62921e-06, 0, -8.14603e-07, -10, 10, 5.96244e-08, -1.94281e-14, 0, 5, -0.325981 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="tree4" type="MeshInstance" parent="."]
+transform = Transform( -10, -9.77524e-07, 5.30863e-13, 0, -4.88762e-07, -10, 3.25841e-06, -3, 1.62921e-06, 0.270801, 5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="pentshadow" parent="." instance=ExtResource( 3 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )

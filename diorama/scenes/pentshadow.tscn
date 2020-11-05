@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://diorama/models/pentshadow.glb" type="PackedScene" id=2]
+
+
+[node name="pentshadow" instance=ExtResource( 2 )]

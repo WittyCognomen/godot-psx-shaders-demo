@@ -1,0 +1,141 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://diorama/scripts/rotate.gd" type="Script" id=1]
+[ext_resource path="res://diorama/scenes/pentshadow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://diorama/scenes/forest_backdrop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://diorama/scenes/ducky.tscn" type="PackedScene" id=4]
+[ext_resource path="res://diorama/scenes/skysphere.tscn" type="PackedScene" id=5]
+[ext_resource path="res://diorama/scenes/tree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://diorama/textures/grass.png" type="Texture" id=7]
+[ext_resource path="res://shaders/psx.shader" type="Shader" id=8]
+
+
+
+
+
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+fog_color = Color( 1, 1, 1, 1 )
+fog_depth_begin = 1.0
+fog_depth_end = 189.7
+fog_depth_curve = 4.59479
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 8 )
+shader_param/color = Color( 0.435294, 0.435294, 0.435294, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 256.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 32, 32 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/double_sided = false
+shader_param/albedoTex = ExtResource( 7 )
+
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 160, 160 )
+subdivide_width = 20
+subdivide_depth = 20
+
+[node name="Scene" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="skysphere" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 80, 0, 0, 0, 80, 0, 0, 0, 80, 0, 0, 0 )
+
+[node name="forest_backdrop" type="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( -23.9414, 0, 65.7785, 0, 50, 0, -65.7785, 0, -23.9414, 0, 0.52637, 0 )
+
+[node name="forest_backdrop2" type="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( 65, 0, 0, 0, 40, 0, 0, 0, 65, 0, -1.0139, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0524784, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59936, 13.9446, -10.6986 )
+omni_range = 58.6152
+omni_attenuation = 1.10957
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65257, 4.01765, -11.3741 )
+light_color = Color( 0, 1, 0.835294, 1 )
+omni_range = 72.8591
+omni_attenuation = 1.10957
+
+[node name="ducky" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.200757, -4.77945 )
+
+[node name="pentshadow" type="Spatial" parent="ducky" instance=ExtResource( 2 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.250946, -0.34774 )
+
+[node name="CamOrigin" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.494243, 0.242684, -5.42308 )
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="CamOrigin"]
+transform = Transform( 0.759135, 0.0454068, 0.649348, 0, 0.997564, -0.0697565, -0.650933, 0.0529546, 0.757286, 12.139, 6.042, 14.732 )
+current = true
+fov = 50.0
+far = 130.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.708685, -0.473414, 0.523111, 0, 0.741449, 0.671009, -0.705525, -0.475534, 0.525454, 0, 9.56638, 0 )
+
+[node name="trees" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.413348, 0 )
+
+[node name="tree" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 0, -0.264357, -35.4391 )
+
+[node name="tree7" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, -24.7757, -0.264357, -29.7475 )
+
+[node name="tree8" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 24.4784, -0.264357, -29.7475 )
+
+[node name="tree9" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 15.1471, -0.264357, -46.1511 )
+
+[node name="tree10" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 15.1471, -0.264357, 46.611 )
+
+[node name="tree11" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 52.3804, -0.264357, -9.19984 )
+
+[node name="tree12" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 47.3872, -0.264357, 15.3334 )
+
+[node name="tree13" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, -58.4824, -0.264357, 2.09779 )
+
+[node name="tree14" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, -26.9439, -0.264357, 42.1049 )
+
+[node name="tree15" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 28.467, -0.264357, 30.521 )
+
+[node name="tree16" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 44.6496, -0.264353, 29.2537 )
+
+[node name="tree2" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 0, -0.264357, 34.4068 )
+
+[node name="tree3" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, -27.6424, -0.264357, 34.4068 )
+
+[node name="tree4" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 24.9833, -0.264357, 20.9272 )
+
+[node name="tree5" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 41.7487, -0.264357, -21.2831 )
+
+[node name="tree6" type="Spatial" parent="trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, -41.2824, -0.264357, -6.38146 )

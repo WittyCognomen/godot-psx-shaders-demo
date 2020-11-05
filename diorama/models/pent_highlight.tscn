@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://shaders/psx_transparent.shader" type="Shader" id=1]
+[ext_resource path="res://diorama/models/pent_highlight.glb" type="PackedScene" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/color = Color( 0, 0.545098, 0.556863, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 256.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/moving_uv = false
+shader_param/double_sided = false
+
+[node name="pent_highlight" instance=ExtResource( 2 )]
+
+[node name="pentshadow" parent="." index="0"]
+material/0 = SubResource( 1 )

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://diorama/models/forest_backdrop.glb" type="PackedScene" id=1]
+[ext_resource path="res://diorama/textures/psx_backdrop_002.png" type="Texture" id=2]
+[ext_resource path="res://shaders/psx.shader" type="Shader" id=3]
+
+
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/color = Color( 0.792157, 0.317647, 0.266667, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 256.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/albedoTex = ExtResource( 2 )
+
+[node name="forest_backdrop" instance=ExtResource( 1 )]
+
+[node name="Circle" parent="." index="0"]
+material/0 = SubResource( 1 )
