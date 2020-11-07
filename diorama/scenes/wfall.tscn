@@ -19,6 +19,7 @@ shader_param/affine_texture_mapping = true
 shader_param/emissive = false
 shader_param/moving_uv = false
 shader_param/double_sided = false
+shader_param/stippled_transparent = false
 shader_param/albedoTex = ExtResource( 2 )
 
 [sub_resource type="ShaderMaterial" id=2]
@@ -34,6 +35,7 @@ shader_param/affine_texture_mapping = true
 shader_param/emissive = false
 shader_param/moving_uv = false
 shader_param/double_sided = false
+shader_param/stippled_transparent = false
 shader_param/albedoTex = ExtResource( 2 )
 
 [sub_resource type="ShaderMaterial" id=3]
@@ -49,6 +51,7 @@ shader_param/affine_texture_mapping = true
 shader_param/emissive = false
 shader_param/moving_uv = false
 shader_param/double_sided = false
+shader_param/stippled_transparent = false
 shader_param/albedoTex = ExtResource( 2 )
 
 [sub_resource type="ShaderMaterial" id=4]
@@ -94,6 +97,7 @@ shader_param/affine_texture_mapping = true
 shader_param/emissive = true
 shader_param/moving_uv = false
 shader_param/double_sided = false
+shader_param/stippled_transparent = false
 
 [sub_resource type="SphereMesh" id=7]
 material = SubResource( 6 )

@@ -5,8 +5,6 @@
 [ext_resource path="res://shaders/psx.shader" type="Shader" id=3]
 [ext_resource path="res://diorama/textures/duc.png" type="Texture" id=4]
 
-
-
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -15,9 +13,12 @@ shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0
 shader_param/uv_scale = Vector2( 0.3, 0.3 )
 shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
 shader_param/affine_texture_mapping = true
 shader_param/emissive = false
+shader_param/moving_uv = false
 shader_param/double_sided = false
+shader_param/stippled_transparent = false
 shader_param/albedoTex = ExtResource( 4 )
 
 [sub_resource type="ShaderMaterial" id=2]
@@ -28,9 +29,12 @@ shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0
 shader_param/uv_scale = Vector2( 1, 1 )
 shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
 shader_param/affine_texture_mapping = true
 shader_param/emissive = false
+shader_param/moving_uv = false
 shader_param/double_sided = false
+shader_param/stippled_transparent = false
 shader_param/albedoTex = ExtResource( 2 )
 
 [node name="ducky" instance=ExtResource( 1 )]
