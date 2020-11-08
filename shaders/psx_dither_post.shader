@@ -10,11 +10,9 @@ void fragment() {
 	
 	vec2 size = vec2(textureSize(dither_tex,0)); // for GLES2: substitute for the dimensions of the dithering matrix
 	vec2 screen_size = 1.0/SCREEN_PIXEL_SIZE;
-	screen_size.y -= mod(screen_size.y, screen_fraction);
+	screen_size -= mod(screen_size, vec2(screen_fraction));
 	
 	vec2 d_uv = SCREEN_UV*screen_size/(size*screen_fraction);
-	
-	//d_uv.y += mod(size.y, screen_fraction);
 
 	float dith = texture(dither_tex, d_uv).r / col_depth;
 	dith -= dith*.5;
@@ -23,5 +21,4 @@ void fragment() {
 	color = vec4(round((color.rgb + dith) * col_depth) / col_depth, color.a);
 	
 	COLOR.rgba = color.rgba;
-	//COLOR = vec4(vec3(dith), 1.0);
 }
