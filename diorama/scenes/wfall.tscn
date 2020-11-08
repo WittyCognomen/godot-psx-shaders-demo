@@ -8,7 +8,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
-shader_param/color = Color( 0, 0.282353, 0.407843, 1 )
+shader_param/tint_color = Color( 0, 0.172549, 0.372549, 1 )
 shader_param/specular_intensity = null
 shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0
@@ -24,7 +24,7 @@ shader_param/albedoTex = ExtResource( 2 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
-shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
 shader_param/specular_intensity = null
 shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0
@@ -40,7 +40,7 @@ shader_param/albedoTex = ExtResource( 2 )
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 3 )
-shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
 shader_param/specular_intensity = null
 shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0
@@ -56,7 +56,7 @@ shader_param/albedoTex = ExtResource( 2 )
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 4 )
-shader_param/color = Color( 0.345098, 0.862745, 1, 1 )
+shader_param/tint_color = Color( 0, 0.670588, 1, 1 )
 shader_param/specular_intensity = null
 shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0
@@ -71,7 +71,7 @@ shader_param/albedoTex = ExtResource( 2 )
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 4 )
-shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
 shader_param/specular_intensity = 0.0
 shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0
@@ -86,7 +86,7 @@ shader_param/albedoTex = ExtResource( 6 )
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 3 )
-shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
 shader_param/specular_intensity = null
 shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0

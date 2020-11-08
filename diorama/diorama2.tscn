@@ -36,11 +36,12 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -40.7003, 0, 0 )
 [node name="pent_highlight" parent="." instance=ExtResource( 2 )]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
 
+[node name="pentshadow" parent="pent_highlight" index="0"]
+material/0 = null
+
 [node name="ducky" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.206045, -0.730783, 0.616757 )
 script = ExtResource( 8 )
-
-[node name="forest_backdrop" parent="." instance=ExtResource( 6 )]
 
 [node name="CamRoot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.41533, 0 )
@@ -119,3 +120,7 @@ light_energy = 6.97
 omni_range = 19.3759
 
 [editable path="pent_highlight"]
+
+[editable path="forest_backdrop2"]
+
+[editable path="forest_backdrop3"]

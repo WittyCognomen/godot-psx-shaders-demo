@@ -12,15 +12,14 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="ViewportTexture" id=2]
+[sub_resource type="ViewportTexture" id=5]
 viewport_path = NodePath("ViewportContainer/Viewport")
 
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/col_depth = 32.0
-shader_param/screen_fraction = 4.0
-shader_param/scene_col = SubResource( 2 )
+shader_param/scene_col = SubResource( 5 )
 shader_param/dither_tex = ExtResource( 2 )
 
 [node name="root" type="Control"]
@@ -33,6 +32,8 @@ __meta__ = {
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 stretch = true
 stretch_shrink = 4
 __meta__ = {
@@ -53,7 +54,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ViewportContainer/Viewport/Control"]
-visible = false
 anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -82,10 +82,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Render" type="ColorRect" parent="."]
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -19,6 +19,7 @@ shader_param/affine_texture_mapping = true
 shader_param/emissive = false
 shader_param/moving_uv = false
 shader_param/double_sided = false
+shader_param/stippled_transparent = false
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 1 )
@@ -33,6 +34,7 @@ shader_param/affine_texture_mapping = true
 shader_param/emissive = false
 shader_param/moving_uv = false
 shader_param/double_sided = false
+shader_param/stippled_transparent = false
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 2 )
@@ -47,6 +49,7 @@ shader_param/affine_texture_mapping = true
 shader_param/emissive = false
 shader_param/moving_uv = false
 shader_param/double_sided = false
+shader_param/stippled_transparent = false
 
 [node name="Read Me" type="Spatial"]
 __meta__ = {

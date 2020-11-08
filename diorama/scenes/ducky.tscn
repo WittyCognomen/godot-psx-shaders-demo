@@ -7,7 +7,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
-shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
 shader_param/specular_intensity = 0.0
 shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0
@@ -23,7 +23,7 @@ shader_param/albedoTex = ExtResource( 4 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
-shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
 shader_param/specular_intensity = null
 shader_param/vertex_resolution = 256.0
 shader_param/cull_distance = 9999.0
