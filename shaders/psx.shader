@@ -40,6 +40,11 @@ void fragment() {
 		discard;
 	}
 	
+	/*if(vbc.x < 0.01 || vbc.y < 0.01 || vbc.z < 0.01) {
+    	discard;
+  	}
+  	}*/
+	
 	vec4 tex;
 	if (affine_texture_mapping){
 		tex = texture(albedoTex, vertex_coordinates.xy / vertex_coordinates.z);
@@ -61,6 +66,10 @@ void fragment() {
 	} else {
 		ALBEDO = tex.rgb * tint_color.rgb * COLOR.rgb;
 	}
+	//EMISSION = NORMAL;
+	//ALBEDO = NORMAL;
+	//ALBEDO = vec3(0.0);
+	
 	SPECULAR = specular_intensity;
 	ROUGHNESS = 1.0;
 	
