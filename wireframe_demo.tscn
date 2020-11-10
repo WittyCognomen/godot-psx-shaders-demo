@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://shaders/dithers/psxdither.png" type="Texture" id=2]
+[ext_resource path="res://wireframe_test_scene/wire_test_scene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://shaders/psx_dither_post.shader" type="Shader" id=4]
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("ViewportContainer/Viewport")
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/col_depth = 16.0
+shader_param/scene_col = SubResource( 2 )
+shader_param/dither_tex = ExtResource( 2 )
+
+[node name="root" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+stretch_shrink = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 480, 270 )
+handle_input_locally = false
+render_target_update_mode = 3
+shadow_atlas_size = 2048
+
+[node name="wire_test_mesh" parent="ViewportContainer/Viewport" instance=ExtResource( 3 )]
+
+[node name="Clear_Color" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Render" type="ColorRect" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
