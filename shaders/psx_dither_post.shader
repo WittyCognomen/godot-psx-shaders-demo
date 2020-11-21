@@ -12,9 +12,10 @@ void fragment() {
 	color = round(color*255.0)/255.0;
 
 	vec3 dith = texture(dither_tex, SCREEN_UV*(buf_size/dith_size)).rgb / col_depth;
-	dith = 2.0*dith - dith;
+	dith = 2.0*dith - (1.0/col_depth);
 	
-	color.rgb = floor((color.rgb + dith) * (col_depth-1.0)) / (col_depth-1.0);
+	color.rgb = floor((color.rgb + dith) * (col_depth)) / (col_depth);
 	
 	COLOR.rgba = color.rgba;
+	
 }
