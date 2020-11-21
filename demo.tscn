@@ -6,20 +6,21 @@
 [ext_resource path="res://fonts/Redkost Comic.otf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 24
-outline_size = 2
+size = 32
+outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="ViewportTexture" id=5]
+[sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("ViewportContainer/Viewport")
 
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/col_depth = 32.0
-shader_param/scene_col = SubResource( 5 )
+shader_param/dith_range = 1.0
+shader_param/scene_col = SubResource( 2 )
 shader_param/dither_tex = ExtResource( 2 )
 
 [node name="root" type="Control"]
@@ -44,16 +45,18 @@ __meta__ = {
 size = Vector2( 480, 270 )
 transparent_bg = true
 handle_input_locally = false
+render_target_clear_mode = 1
 render_target_update_mode = 3
+audio_listener_enable_3d = true
 shadow_atlas_size = 2048
 
-[node name="Control" type="Control" parent="ViewportContainer/Viewport"]
+[node name="UI" type="Control" parent="ViewportContainer/Viewport"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ViewportContainer/Viewport/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ViewportContainer/Viewport/UI"]
 anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -72,12 +75,11 @@ text = "Hello World
 fit_content_height = true
 
 [node name="Diorama2" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.08014, 4.07906, 0.79624 )
 
-[node name="Clear_Color" type="ColorRect" parent="."]
+[node name="ClearColor" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.772549, 0.772549, 0.772549, 1 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,6 +90,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 __meta__ = {
 "_edit_use_anchors_": false

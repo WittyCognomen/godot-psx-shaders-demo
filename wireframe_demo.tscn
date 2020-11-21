@@ -4,14 +4,15 @@
 [ext_resource path="res://wireframe_test_scene/wire_test_scene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://shaders/psx_dither_post.shader" type="Shader" id=4]
 
-[sub_resource type="ViewportTexture" id=2]
+[sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("ViewportContainer/Viewport")
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 shader = ExtResource( 4 )
-shader_param/col_depth = 16.0
-shader_param/scene_col = SubResource( 2 )
+shader_param/col_depth = 32.0
+shader_param/dith_range = 1.0
+shader_param/scene_col = SubResource( 1 )
 shader_param/dither_tex = ExtResource( 2 )
 
 [node name="root" type="Control"]
@@ -49,7 +50,7 @@ __meta__ = {
 }
 
 [node name="Render" type="ColorRect" parent="."]
-material = SubResource( 3 )
+material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
