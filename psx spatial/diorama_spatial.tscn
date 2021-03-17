@@ -1,0 +1,271 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://diorama/scenes/wfall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://diorama/models/pent_highlight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://psx spatial/ducky2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://psx spatial/tree_spatial.tscn" type="PackedScene" id=4]
+[ext_resource path="res://diorama/scenes/skysphere.tscn" type="PackedScene" id=5]
+[ext_resource path="res://diorama/scenes/forest_backdrop.tscn" type="PackedScene" id=6]
+[ext_resource path="res://diorama/scripts/rotate.gd" type="Script" id=7]
+[ext_resource path="res://diorama/scripts/bobbing.gd" type="Script" id=8]
+[ext_resource path="res://diorama/scripts/lookat.gd" type="Script" id=9]
+[ext_resource path="res://shaders/psx.shader" type="Shader" id=10]
+[ext_resource path="res://diorama/textures/gscale.png" type="Texture" id=11]
+[ext_resource path="res://shaders/psx_transparent.shader" type="Shader" id=12]
+[ext_resource path="res://psx spatial/spatial_psx_pass.tres" type="Material" id=13]
+[ext_resource path="res://diorama/textures/psx_backdrop_002.png" type="Texture" id=14]
+[ext_resource path="res://diorama/textures/fall.png" type="Texture" id=15]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_color = Color( 1, 1, 1, 1 )
+fog_color = Color( 1, 1, 1, 1 )
+fog_depth_end = 179.6
+fog_depth_curve = 3.03143
+dof_blur_far_distance = 38.74
+dof_blur_far_amount = 0.11
+dof_blur_far_quality = 2
+dof_blur_near_distance = 24.53
+dof_blur_near_transition = 0.76
+
+[sub_resource type="ShaderMaterial" id=3]
+next_pass = ExtResource( 13 )
+shader = ExtResource( 10 )
+shader_param/tint_color = Color( 0.0980392, 0.196078, 0.313726, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 2048.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 40, 40 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/moving_uv = false
+shader_param/double_sided = false
+shader_param/stippled_transparent = false
+shader_param/world_space_vertex_resolution = false
+shader_param/albedoTex = ExtResource( 11 )
+
+[sub_resource type="ShaderMaterial" id=4]
+render_priority = 1
+next_pass = ExtResource( 13 )
+shader = ExtResource( 10 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 2048.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/moving_uv = false
+shader_param/double_sided = false
+shader_param/stippled_transparent = false
+shader_param/world_space_vertex_resolution = false
+shader_param/albedoTex = ExtResource( 11 )
+
+[sub_resource type="ShaderMaterial" id=5]
+next_pass = ExtResource( 13 )
+shader = ExtResource( 10 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 2048.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/moving_uv = false
+shader_param/double_sided = false
+shader_param/stippled_transparent = false
+shader_param/world_space_vertex_resolution = false
+shader_param/albedoTex = ExtResource( 11 )
+
+[sub_resource type="ShaderMaterial" id=6]
+render_priority = 1
+next_pass = ExtResource( 13 )
+shader = ExtResource( 12 )
+shader_param/tint_color = Color( 0, 0.670588, 1, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 2048.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 4, 2 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -0.15 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = true
+shader_param/moving_uv = true
+shader_param/double_sided = true
+shader_param/albedoTex = ExtResource( 11 )
+
+[sub_resource type="ShaderMaterial" id=7]
+render_priority = 1
+next_pass = ExtResource( 13 )
+shader = ExtResource( 12 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
+shader_param/specular_intensity = 0.0
+shader_param/vertex_resolution = 256.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 8, 4 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -2 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = true
+shader_param/moving_uv = true
+shader_param/double_sided = true
+shader_param/albedoTex = ExtResource( 15 )
+
+[sub_resource type="ShaderMaterial" id=8]
+next_pass = ExtResource( 13 )
+shader = ExtResource( 10 )
+shader_param/tint_color = Color( 1, 1, 1, 1 )
+shader_param/specular_intensity = 0.0
+shader_param/vertex_resolution = 256.0
+shader_param/cull_distance = 500.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = true
+shader_param/moving_uv = false
+shader_param/double_sided = false
+shader_param/stippled_transparent = false
+shader_param/world_space_vertex_resolution = false
+
+[sub_resource type="ShaderMaterial" id=9]
+next_pass = ExtResource( 13 )
+shader = ExtResource( 10 )
+shader_param/tint_color = Color( 0.866667, 0.580392, 0.32549, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 256.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/moving_uv = false
+shader_param/double_sided = false
+shader_param/stippled_transparent = false
+shader_param/world_space_vertex_resolution = false
+shader_param/albedoTex = ExtResource( 14 )
+
+[sub_resource type="ShaderMaterial" id=10]
+next_pass = ExtResource( 13 )
+shader = ExtResource( 10 )
+shader_param/tint_color = Color( 0.866667, 0.580392, 0.32549, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 256.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/moving_uv = false
+shader_param/double_sided = false
+shader_param/stippled_transparent = false
+shader_param/world_space_vertex_resolution = false
+shader_param/albedoTex = ExtResource( 14 )
+
+[node name="Spatial PSX Diorama" type="Spatial"]
+__meta__ = {
+"_editor_description_": "Demo of a pixellating+dithering shader using a Spatial pass."
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="wfall" parent="." instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -40.7003, 0, 0 )
+
+[node name="Plane" parent="wfall" index="0"]
+material/0 = SubResource( 3 )
+material/1 = SubResource( 4 )
+material/2 = SubResource( 5 )
+
+[node name="WaterSurface" parent="wfall" index="1"]
+material/0 = SubResource( 6 )
+
+[node name="Waterfall" parent="wfall" index="2"]
+material/0 = SubResource( 7 )
+
+[node name="pent_highlight" parent="." instance=ExtResource( 2 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
+
+[node name="pentshadow" parent="pent_highlight" index="0"]
+material/0 = null
+
+[node name="CamRoot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.41533, 0 )
+script = ExtResource( 7 )
+
+[node name="Camera" type="Camera" parent="CamRoot"]
+transform = Transform( 0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 16.2435, 1.37909, 17.4358 )
+current = true
+fov = 48.0
+far = 200.0
+script = ExtResource( 9 )
+
+[node name="skysphere" parent="." instance=ExtResource( 5 )]
+transform = Transform( -99.5858, 0, -83.5624, 0, 130, 0, 83.5624, 0, -99.5858, -0.404213, 9.10833, 0.377258 )
+
+[node name="SkySphere" parent="skysphere" index="0"]
+material/0 = SubResource( 8 )
+
+[node name="forest_backdrop2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 75.837, 0, 0, 0, 60, 0, 0, 0, 80, 0, 0, 0 )
+
+[node name="Circle" parent="forest_backdrop2" index="0"]
+material/0 = SubResource( 9 )
+
+[node name="forest_backdrop3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 30.7818, 0, 86.9657, 0, 67.311, 0, -84.5723, 0, 31.6529, 0.00938034, 4.62459, 0 )
+
+[node name="Circle" parent="forest_backdrop3" index="0"]
+material/0 = SubResource( 10 )
+
+[node name="Trees" type="Spatial" parent="."]
+
+[node name="tree" parent="Trees" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 28.2864, 1.44091, -23.8753 )
+
+[node name="tree2" parent="Trees" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, -22.8718, 1.44091, -23.8753 )
+
+[node name="tree3" parent="Trees" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, -22.8718, 1.44091, 25.4428 )
+
+[node name="tree4" parent="Trees" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 8.55, 2.62189, 34.8307 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.0413, 20.0233, -0.53157 )
+light_color = Color( 0, 0.694118, 0.831373, 1 )
+light_energy = 6.97
+omni_range = 19.3759
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5272, -8.37944, -1.21751 )
+light_color = Color( 0.811765, 0.831373, 0.168627, 1 )
+light_energy = 6.97
+omni_range = 10.7881
+
+[node name="ducky2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.600232, 0 )
+script = ExtResource( 8 )
+
+[editable path="wfall"]
+
+[editable path="pent_highlight"]
+
+[editable path="skysphere"]
+
+[editable path="forest_backdrop2"]
+
+[editable path="forest_backdrop3"]

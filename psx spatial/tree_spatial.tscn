@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://diorama/textures/psxtree.png" type="Texture" id=1]
+[ext_resource path="res://shaders/psx.shader" type="Shader" id=2]
+[ext_resource path="res://diorama/scenes/pentshadow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://psx spatial/spatial_psx_pass.tres" type="Material" id=4]
+[ext_resource path="res://shaders/psx_transparent.shader" type="Shader" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+next_pass = ExtResource( 4 )
+shader = ExtResource( 2 )
+shader_param/tint_color = Color( 0.741176, 0.478431, 0.478431, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 2048.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/moving_uv = false
+shader_param/double_sided = false
+shader_param/stippled_transparent = false
+shader_param/world_space_vertex_resolution = false
+shader_param/albedoTex = ExtResource( 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 1, 1 )
+subdivide_width = 1
+subdivide_depth = 1
+
+[sub_resource type="ShaderMaterial" id=3]
+render_priority = 1
+next_pass = ExtResource( 4 )
+shader = ExtResource( 5 )
+shader_param/tint_color = Color( 0, 0, 0, 1 )
+shader_param/specular_intensity = null
+shader_param/vertex_resolution = 2048.0
+shader_param/cull_distance = 9999.0
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_speed = Vector2( 0, -1 )
+shader_param/affine_texture_mapping = true
+shader_param/emissive = false
+shader_param/moving_uv = false
+shader_param/double_sided = false
+
+[sub_resource type="ArrayMesh" id=4]
+resource_name = "pentshadow"
+surfaces/0 = {
+"aabb": AABB( -0.951057, 0, -1, 1.90211, 1e-05, 1.80902 ),
+"array_data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 191, 0, 126, 0, 0, 127, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 60, 113, 120, 115, 191, 0, 0, 0, 0, 121, 55, 158, 190, 0, 126, 0, 0, 127, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 60, 128, 24, 172, 187, 0, 0, 0, 0, 0, 2, 70, 187, 0, 126, 0, 0, 127, 0, 0, 127, 0, 0, 0, 255, 0, 0, 0, 60, 113, 120, 115, 191, 0, 0, 0, 0, 121, 55, 158, 190, 0, 127, 0, 0, 127, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 60, 23, 121, 22, 191, 0, 0, 0, 0, 190, 27, 79, 63, 0, 127, 0, 0, 127, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 60, 128, 24, 172, 187, 0, 0, 0, 0, 0, 2, 70, 187, 0, 127, 0, 0, 127, 0, 0, 127, 0, 0, 0, 255, 0, 0, 0, 60, 23, 121, 22, 191, 0, 0, 0, 0, 190, 27, 79, 63, 0, 127, 0, 0, 127, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 60, 26, 121, 22, 63, 0, 0, 0, 0, 188, 27, 79, 63, 0, 127, 0, 0, 127, 0, 0, 127, 4, 4, 4, 0, 0, 0, 0, 60, 26, 121, 22, 63, 0, 0, 0, 0, 188, 27, 79, 63, 0, 127, 0, 0, 127, 0, 0, 127, 4, 4, 4, 0, 0, 0, 0, 60, 112, 120, 115, 63, 0, 0, 0, 0, 126, 55, 158, 190, 0, 127, 0, 0, 127, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 60, 112, 120, 115, 63, 0, 0, 0, 0, 126, 55, 158, 190, 0, 127, 0, 0, 127, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 191, 0, 127, 0, 0, 127, 0, 0, 127, 0, 0, 0, 0, 0, 0, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 5, 0, 7, 0, 8, 0, 5, 0, 9, 0, 10, 0, 5, 0, 11, 0 ),
+"blend_shape_data": [  ],
+"format": 97567,
+"index_count": 15,
+"material": SubResource( 3 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 12
+}
+
+[node name="tree" type="Spatial"]
+
+[node name="tree" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, -2.18557e-07, -10, 0, 5, -4.37114e-07, -0.33504, 5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="tree2" type="MeshInstance" parent="."]
+transform = Transform( -1.62921e-06, 5, -4.37114e-07, 0, -2.18557e-07, -10, -10, -8.14603e-07, 7.12149e-14, 0, 5, 0.317007 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="tree3" type="MeshInstance" parent="."]
+transform = Transform( 1.19249e-07, -5, 1.62921e-06, 0, -8.14603e-07, -10, 10, 5.96244e-08, -1.94281e-14, 0, 5, -0.325981 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="tree4" type="MeshInstance" parent="."]
+transform = Transform( -10, -9.77524e-07, 5.30863e-13, 0, -4.88762e-07, -10, 3.25841e-06, -3, 1.62921e-06, 0.270801, 5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="pentshadow" parent="." instance=ExtResource( 3 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
+
+[node name="pentshadow" parent="pentshadow" index="0"]
+mesh = SubResource( 4 )
+
+[editable path="pentshadow"]

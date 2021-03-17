@@ -17,6 +17,8 @@ uniform bool double_sided = false;
 
 uniform bool stippled_transparent = false;
 
+uniform bool world_space_vertex_resolution = false;
+
 varying vec4 vertex_coordinates;
 
 void vertex() {
@@ -25,6 +27,8 @@ void vertex() {
 	float vertex_distance = length((MODELVIEW_MATRIX * vec4(VERTEX, 1.0)));
 	
 	VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	
+	
 	NORMAL = abs(vec4(NORMAL, 1.) * MODELVIEW_MATRIX).xyz;
 	
 	float vPos_w = (PROJECTION_MATRIX * vec4(VERTEX, 1.0)).w;
@@ -39,11 +43,6 @@ void fragment() {
 	if (stippled_transparent && (mod(SCREEN_UV.x*VIEWPORT_SIZE.x+floor(mod(SCREEN_UV.y*VIEWPORT_SIZE.y, 2.0)), 2.0)<1.0)){
 		discard;
 	}
-	
-	/*if(vbc.x < 0.01 || vbc.y < 0.01 || vbc.z < 0.01) {
-    	discard;
-  	}
-  	}*/
 	
 	vec4 tex;
 	if (affine_texture_mapping){
@@ -66,9 +65,6 @@ void fragment() {
 	} else {
 		ALBEDO = tex.rgb * tint_color.rgb * COLOR.rgb;
 	}
-	//EMISSION = NORMAL;
-	//ALBEDO = NORMAL;
-	//ALBEDO = vec3(0.0);
 	
 	SPECULAR = specular_intensity;
 	ROUGHNESS = 1.0;

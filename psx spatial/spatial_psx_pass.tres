@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://shaders/spatial psx pass.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/pixel_size = 4.0
+shader_param/col_depth = 32.0
+shader_param/active = true
+shader_param/outline_extrusion = 0.063
