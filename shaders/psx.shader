@@ -2,7 +2,7 @@ shader_type spatial;
 render_mode skip_vertex_transform, diffuse_lambert_wrap, specular_phong, vertex_lighting, depth_draw_alpha_prepass, cull_disabled;
 
 uniform vec4 tint_color : hint_color = vec4(1.0);
-uniform sampler2D albedoTex : hint_white;
+uniform sampler2D albedoTex : hint_albedo;
 uniform float specular_intensity : hint_range(0, 1);
 uniform float vertex_resolution = 256;
 uniform float cull_distance = 9999;
